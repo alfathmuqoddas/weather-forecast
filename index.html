@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <title>Weather Forecast</title>
+    <style>
+      .has-image-background {
+        background: url('https://picsum.photos/1280/720');
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body class="has-image-background">
+<div class="">
+  <div class="container mx-auto px-4 lg:px-12">
+  <div class="my-20">
+    <div class="rounded rounded-3xl overflow-hidden flex flex-col md:flex-row border shadow-lg">
+      <!--left content-->
+      <div class="w-full md:w-3/12 p-8 backdrop-filter backdrop-blur-lg">
+        <form class="border rounded-full p-2 shadow text-sm w-full bg-white">
+          <input type="text" id="city-input" placeholder="Search for places..." class="w-10/12">
+          <input type="submit" value="🔎" class="w-1/12 bg-white">
+        </form>
+        <div class="w-full text-center">
+          <img id="current-weather-icon" class="mx-auto">
+        </div>
+        <div class="text-6xl text-center"><span id="current-temp">--</span>°C</div>
+        <div class="text-center pt-4" id="current-date">--</div>
+        <br>
+        <div class="text-xl">🌩 <span class="" id="current-weather-main"></span></div>
+        <div class="text-xl">☔ <span class="" id="current-humidity"></span></div>
+        <div class="rounded-xl bg-gray-200 p-8 text-center m-8 font-bold"><span id="current-city"></span> <span id="current-country"></span></div>
+      </div>
+      
+      <!--right content-->
+      <div class="w-full md:w-9/12 bg-gray-50 p-8">
+        <div class="font-bold mb-4">Weekly</div>
+        <div class="daily-weather mb-8">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+            <div class="card px-4 py-6 text-center rounded-xl bg-white">
+              <div class="day text-sm" id="day-2"></div>
+              <div class="icon w-full">
+                <img id="day-2-icon" class="mx-auto">
+              </div>
+              <div class="temp text-sm"><span id="day-2-temp"></span> <span class="text-gray-400" id="day-2-feels"></span></div>
+            </div>
+            <div class="card px-4 py-6 text-center rounded-xl bg-white">
+              <div class="day text-sm" id="day-3"></div>
+              <div class="icon w-full">
+                <img id="day-3-icon" class="mx-auto">
+              </div>
+              <div class="temp text-sm"><span id="day-3-temp"></span> <span class="text-gray-400" id="day-3-feels"></span></div>
+            </div>
+            <div class="card px-4 py-6 text-center rounded-xl bg-white">
+              <div class="day text-sm" id="day-4"></div>
+              <div class="icon w-full">
+                <img id="day-4-icon" class="mx-auto">
+              </div>
+              <div class="temp text-sm"><span id="day-4-temp"></span> <span class="text-gray-400" id="day-4-feels"></span></div>
+            </div>
+            <div class="card px-4 py-6 text-center rounded-xl bg-white">
+              <div class="day text-sm" id="day-5"></div>
+              <div class="icon w-full">
+                <img id="day-5-icon" class="mx-auto">
+              </div>
+              <div class="temp text-sm"><span id="day-5-temp"></span> <span class="text-gray-400" id="day-5-feels"></span></div>
+            </div>
+            
+          </div> 
+        </div>
+        
+        <!--Today highlight-->
+        <div class="font-bold mb-4">Today's Highlight</div>
+        <div class="today-higlight">
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div class="uv-index bg-white rounded-xl p-4 w-full">
+              <div class="title text-sm text-gray-500">Pressure</div>
+              <div class="text-5xl text-center mt-4" id="pressure-hpa"></div>
+            </div>
+            <div class="wind-status bg-white rounded-xl p-4 w-full">
+              <div class="title text-gray-500">Wind Status</div>
+              <div class="text-5xl text-center mt-4"><span id="wind-speed"></span> <span class="text-base"> M/S</span></div>
+              <div class="text-xl font-semibold mt-4">&#129517; <span id="wind-deg"></span></div>
+            </div>
+            <div class="sunrise-set bg-white rounded-xl p-4 w-full">
+              <div class="title text-gray-500">Sunrise & Sunset</div>
+              <div class="text-xl mt-4 text-center">🌅 <span id="sunrise-time"></span></div>
+              <div class="text-xl mt-4 text-center">🌇 <span id="sunset-time"></span></div>
+            </div>
+            <div class="humidity bg-white rounded-xl p-4 w-full">
+              <div class="title text-gray-500">Humidity</div>
+              <div class="text-5xl mt-4 text-center" id="humidity-percent"></div>
+              <div class="text mt-4">Normal👍</div>
+            </div>
+            <div class="visibility bg-white rounded-xl p-4 w-full">
+              <div class="title text-gray-500">Visibility</div>
+              <div class="text-5xl text-center mt-4"><span id="visibility-km"></span> <span class="text-base">KM</span></div>
+              <div class="text mt-4">Average👌</div>
+            </div>
+            <div class="air-quality bg-white rounded-xl p-4 w-full">
+              <div class="title text-gray-500">Air Quality</div>
+              <div class="text-5xl text-center mt-4">105</div>
+              <div class="text mt-4">Unhealthy👎</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+</div>
+<script src="app.js"></script>
+</body>
